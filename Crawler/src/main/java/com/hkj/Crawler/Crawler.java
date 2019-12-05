@@ -42,21 +42,26 @@ public class Crawler implements Runnable{
 	
 	// 기사 각각의 path에 붙여줄 prefix
 	private static final String PREFIX = "https:";
-	/*
-	public Crawler(Environment environment)
+
+	public Crawler()
 	{
-		if(environment == null)
-			throw new java.lang.NullPointerException("environment is null.");
-		
-		this.environment = environment;
-		this.savePath = this.environment.getSavePath();
-		
-		this.coolTime = this.environment.getCoolTime();
-		System.out.println("@@@@@"+this.coolTime);
-		if(this.coolTime < 60 || this.coolTime > 1000)
-			throw new java.lang.IllegalArgumentException("coolTime is abnormal.");
+		this.coolTime = 300;
+		this.savePath = "";
 	}
-	*/
+	public Crawler(int coolTime)
+	{
+		if(coolTime < 60 || coolTime > 1000)
+			throw new java.lang.IllegalArgumentException("coolTime is abnormal.");
+		this.coolTime = coolTime;
+		this.savePath = "";
+	}
+	public Crawler(String savePath)
+	{
+		if(savePath == null)
+			throw new java.lang.NullPointerException("savePath is null.");
+		this.coolTime = 300;
+		this.savePath = savePath;
+	}
 	public Crawler(int coolTime, String savePath)
 	{
 		if(coolTime < 60 || coolTime > 1000)
@@ -79,7 +84,9 @@ public class Crawler implements Runnable{
 			}
 			try
 			{
+				System.out.println("sleep");
 				Thread.sleep(this.coolTime * 1000);
+				System.out.println("awake");
 			}
 			catch(InterruptedException ie)
 			{
