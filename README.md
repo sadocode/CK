@@ -6,19 +6,17 @@
 * 한계 1 : 대용량 데이터를 전송하는 것이 아니므로 카프카의 성능 측정에 제한이 있다.
 * 한계 2 : 로컬에서만 이루어진다.
 
-/br
 
 ## 사용법
 1. cp ./Crawler/target/Crawler-0.0.1-SNAPSHOT-jar-with-dependencies.jar ./crawler.jar 명령어 입력
 2. ./start.sh start 입력 -> 백그라운드에서 크롤링 프로그램 작동됨
 3. ./start.sh stop 입력 -> 크롤링 프로그램 종료
 
-/br
 
 ## 현재 버전
-* [YCKE-1]
+* [YCKE-2]
 
-/br
 
 ## 버전
 * [YCKE-1] : 백그라운드에서 연합뉴스 최신기사의 크롤링이 실행됨. 
+* [YCKE-2] : 크롤러 실행 시에 argument를 입력해서, 크롤링 주기 및 기사 저장 위치를 지정할 수 있음.
